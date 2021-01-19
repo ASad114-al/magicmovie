@@ -1,6 +1,8 @@
 require('dotenv').config()
+const fetch = require('node-fetch');
 const express = require('express')
 const app = express()
+const movie= require('./models/Items')
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.use(express.json())
@@ -15,10 +17,13 @@ mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology:
     .catch(err => console.log(err))
 
     app.get('/', (req, res) => {
-   
-       
-           
-            res.render('index')
-    
-     
+        fetch('https://api.themoviedb.org/3/trending/movie/550?api_key=4f2d4313669b932746a7cbe1b3fff187')
+    .then(res => res.json())
+    .then((json)=>{
+        //  console.log(json) 
+        data=json.results
+        res.render('index',{moviedata:data})
+        
+    })
+    .catch(err => console.log(err))     
     })

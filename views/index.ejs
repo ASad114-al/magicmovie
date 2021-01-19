@@ -2,6 +2,16 @@
 
 
 <h1>home</h1>
+<section class="main">
+    <% moviedata.forEach(element => { %>
+    <article>
+        
+            <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
+            <h3><%= element.title%> </h3>
+       
+    </article>
+    <% }) %>
+</section>
 
 
 <%- include('./partials/footer') %> 
