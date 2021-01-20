@@ -2,16 +2,17 @@
 
 
 <h1>home</h1>
+
 <section class="main">
-    <% moviedata.forEach(element => { %>
+    <% allmoviedata.forEach(ele => { %>
     <article>
-        
-            <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
-            <h3><%= element.title%> </h3>
-       
+        <a href="/movieDetails/<%= ele.id %>">
+            <img src="https://image.tmdb.org/t/p/w500<%= ele.poster_path %> " alt="">
+            <h3><%= ele.title%> </h3>
+        </a>
+        <p><%= ele.overview %> </p>
     </article>
     <% }) %>
 </section>
-
 
 <%- include('./partials/footer') %> 

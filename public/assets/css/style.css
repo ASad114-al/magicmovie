@@ -1,0 +1,11 @@
+
+
+.main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.main img{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
