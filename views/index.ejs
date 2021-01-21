@@ -6,11 +6,11 @@
 <section class="main">
     <% allmoviedata.forEach(ele => { %>
     <article>
-        <a href="/movieDetails/<%= ele.id %>">
+        <a href="/details/<%= ele.id %>">
             <img src="https://image.tmdb.org/t/p/w500<%= ele.poster_path %> " alt="">
             <h3><%= ele.title%> </h3>
         </a>
-        <p><%= ele.overview %> </p>
+       
     </article>
     <% }) %>
 </section>
