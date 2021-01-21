@@ -4,14 +4,15 @@
 
 
 
-<h1>My Favourites</h1>
+<h1>MySHOWS</h1>
 <section class="main">
-    <% myMovies.forEach(element => { %>
+    <% Movies.forEach(element => { %>
     <article>
-        <a href="/removeFavourite/<%= element._id %>">
+      
             <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
             <h3><%= element.title%> </h3>
-        </a>
+            <h4><%= element.overview %> </h4>
+            <a href="/removeFavourite/<%= element._id %>"> See More </a>
     </article>
     <% }) %>
 </section>

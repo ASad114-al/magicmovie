@@ -4,7 +4,7 @@
 <h1>home</h1>
 
 <section class="main">
-    <% allmoviedata.forEach(ele => { %>
+    <% moviedata.forEach(ele => { %>
     <article>
         <a href="/details/<%= ele.id %>">
             <img src="https://image.tmdb.org/t/p/w500<%= ele.poster_path %> " alt="">
