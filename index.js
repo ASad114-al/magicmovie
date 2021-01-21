@@ -45,63 +45,41 @@ mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology:
       .catch(err=>console.log(err))
       })
 
-    //   app.get('/addfavourites/:id' , (req, res) =>{
-    //     //    console.log(req.params.id);
-    //         fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=4f2d4313669b932746a7cbe1b3fff187`)
-           
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             // console.log(json)
-    //             res.render("moviesdetails", { single: json })
-    //         })
-    //       .catch(err=>console.log(err))
-    //       })
 
-        //   favourites
-    app.get('/addfavourites/:id',(req,res)=>{
-        fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=4f2d4313669b932746a7cbe1b3fff187&language=en-US`)
-       
-        .then(res=> res.json())
-        .then(json=>{
-            // console.log(json);
-            favouritesData=json
-            console.log(favouritesData);
-            movie.find({id:favouritesData.id})
-            .then(result=>{
-                if(result.length > 0){
-                    res.redirect('/favourites')
-                }else{
-                    const NewmovieItems= new movie({
-                        id: favouritesData.id,
-                        title: favouritesData.title,
-                        overview: favouritesData.overview,
-                        genres: favouritesData.genres,
-                        poster_path: favouritesData.poster_path,
-                        backdrop_path: favouritesData.backdrop_path,
-                        vote_average: favouritesData.vote_average,
-                        popularity: favouritesData.popularity,
-                        original_title: favouritesData.original_title,
-                        release_date: favouritesData.release_date,
-                        status: favouritesData.status
-                    })
-                    NewmovieItems.save()
-                    .then(result=>{
-                        res.redirect('/favourites')
-                    })
-                }
-            })
-
-        })
-    })
+      app.get('/addfavourites/:id' , (req, res) =>{
     
+        fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=4f2d4313669b932746a7cbe1b3fff187`)
+        
+        .then(res => res.json())
+        .then(json => {
+          const newFavItem = new movie({
+            id: json.id,
+            title: json.title,
+            overview: json.overview,
+            genres: json.genres,
 
-app.get('favourites',(res,req)=>{
-    movie.find()
-    .then(result => {
-        res.render('favourites', { myMovies: result })
+            poster_path: json.poster_path,
+            backdrop_path: json.backdrop_path,
+
+            vote_average: json.vote_average,
+            popularity: json.popularity,
+            original_title: json.original_title,
+            release_date: json.release_date,
+            status: json.status
+          });
+          newFavItem.save()
+            
+            .then((result) => {
+              console.log("new Fav saved");
+              res.redirect("/favourites");
+            })
+      .catch(err=>console.log(err))
+      })
+      });    
+      app.get("/favourites", (req, res) => {
+        movie.find()
+            .then(result => {
+                res.render('favourites', { myMovies: result })
+            })
+            .catch(err => console.log(err))
     })
-    console.log( myMovies)
-    .catch(err => console.log(err))
-
-
-})
