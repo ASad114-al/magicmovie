@@ -1,13 +1,13 @@
 <%- include('./partials/header') %> 
 
+<main>
 
-
-
+    <%- include('./partials/nav') %> 
 
 <h1>MySHOWS</h1>
 <section class="main">
     <% Movies.forEach(element => { %>
-    <article>
+    <article class="favourite">
       
             <img src="https://image.tmdb.org/t/p/w500<%= element.poster_path %> " alt="">
             <h3><%= element.title%> </h3>
@@ -17,6 +17,7 @@
     <% }) %>
 </section>
 
+</main>
 
 
 

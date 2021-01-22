@@ -1,19 +1,15 @@
-<%- include('./partials/header') %> 
+<%- include('/partials/header') %> 
 
-<main>
-<%- include('./partials/nav') %> 
-
-
+<%- include('/partials/nav') %> 
 <section class="main">
-    <% moviedata.forEach(ele => { %>
-    <article class="article">
+    <% searchedMovies.forEach(ele => { %>
+    <article>
         <a href="/details/<%= ele.id %>">
             <img src="https://image.tmdb.org/t/p/w500<%= ele.poster_path %> " alt="">
             <h3><%= ele.title%> </h3>
         </a>
-       
     </article>
     <% }) %>
 </section>
-</main>
-<%- include('./partials/footer') %> 
+
+<%- include('/partials/footer') %> 

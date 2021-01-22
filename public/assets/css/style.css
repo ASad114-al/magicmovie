@@ -1,13 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.body{
+background: #333333;
+font-family: 'poppins';
+font-style: normal;
+}
 
-
+header{
+background: #4F4F4F ;
+padding: 1.4vh;
+width: 100%;
+font-family: 'Poppins', sans-serif;
+font-size: 22px;
+line-height: 26px;
+}
+nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 70%;
+margin-left: 10%;
+}
+ #input{
+background: #333333;
+border: 1px solid rgba(255, 255, 255, 0.2);
+box-sizing: border-box;
+border-radius: 200px;    
+Width:290px;
+Height:32px
+}
+.search-icon{
+position: absolute;
+width: 16px;
+height: 16px;
+left: 32%;
+top: 20px;
+opacity: 0.6;
+margin: 12px 0px;
+}
+.submit{
+background: #FFFFFF;
+border: 1.5px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 50px;
+Width:170px ;
+Height: 32px
+}
+nav a{
+text-decoration: none;
+color: #FFFFFF;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 60px 0px;
+}
+nav li {
+list-style: none;  
+}
+/* HOME */
 .main{
     margin: 10vh 10%;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
 }
-
+.article{
+    border-radius: 10px;
+    text-decoration: none;
+    background: #4F4F4F;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, .8);
+    transition: transform .2s, box-shadow .2s;
+}
+.article:hover{
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, .8);
+    transform: scale(1.05);
+}
+.main img{
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.main h3{
+    color: white;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1vh 5%;
+    text-align: center;
+}
 .main a{
     text-decoration: none;
 }
+.favourite img:hover{
+    box-shadow: 0 0 12px 2px rgba(0, 0, 0, .8);
+    transform: scale(1.05)
+}
+.favourite{  
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 1vh 5%;
+    text-align: center;
+    color: #CCCCCC;
+}
+.favourite a{
+text-decoration: none;
+border: 1.5px solid #FFFFFF;
+box-sizing: border-box;
+border-radius: 100px;
+color: #CCCCCC;
+width: 105px;
+height: 30px;
+padding: 5px 10px ;
+transition: transform .2s;
+}
+h1{
+text-align: center;
+font-style: normal;
+font-weight: 900;
+font-size: 32px;
+line-height: 48px;
+
+color: #FFFFFF;
+}
+
 

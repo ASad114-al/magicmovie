@@ -1,17 +1,56 @@
-<%- include('./partials/header') %> 
 
-<main>
-<img src="https://image.tmdb.org/t/p/w500/<%= single.backdrop_path %>" alt="">
-<article>
-    <a href="/addfavourites/<%=single.id %> ">
-    <img src="/assets/img/icon.png" alt="">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/style2.css">
+    </head>
+    <body class="vvv">
+        
    
-    <h2>Add to favourite</h2>
-   </a>
-</article>
+<main class="mainDetail">
+    <img src="https://image.tmdb.org/t/p/original<%= single.backdrop_path %> " alt="">
 
+    <div class="rating">
+        <img src="/img/star.svg" alt="">
+        <h4><%=single.vote_average %><span class="small">/10</span> </h4>
+        <h5><%=single.popularity %> </h5>
+    </div>
+    <section>
+        <div class="favourites">
+            <a href="/addfavourites/<%=single.id %> "><img src="/assets/img/icon.png" alt=""></a>
+            <h1>Add to favourite</h1>
+        </div>
+
+        <h3><%= single.original_title %> </h3>
+
+        <div class="details">
+            <p><%= single.release_date %> </p>
+            <p><%= single.status %> </p>
+        </div>
+
+        <div class="genres">
+            <% single.genres.forEach(element => { %>
+            <span class="btn"><%=  element.name %> </span>
+            <% }) %>
+        </div>
+
+        <div class="text">
+            <h2>Plot Summary</h2>
+            <p><%= single.overview%></p>
+        </div>
+    </section>
 
 </main>
+
+</body>
+</html>
+
+
+
+
 
 
 

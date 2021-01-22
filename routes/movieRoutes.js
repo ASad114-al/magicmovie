@@ -15,7 +15,7 @@ router.get('/',  (req, res) => {
 .then((json)=>{
     //  console.log(json) 
     data=json.results
-    console.log(data);
+    // console.log(data);
     res.render('index',{moviedata:data})
 
 })
@@ -40,7 +40,7 @@ router.get('/details/:id' , (req, res) =>{
     fetch(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=4f2d4313669b932746a7cbe1b3fff187`)
         .then(res => res.json())
         .then(json => {
-            console.log(json);
+            // console.log(json);
             const data1 = json
             movie.find({ id: data1.id })
                 .then(result => {
@@ -91,7 +91,7 @@ movie.findById(req.params.id)
 router.get("/removefavourite/:id/delete", (req, res) => {
 movie.findByIdAndDelete(req.params.id)
     .then(result => {
-        console.log(req.params.id);
+        // console.log(req.params.id);
         res.redirect('/favourites')
     })
     .catch(err => console.log(err))
