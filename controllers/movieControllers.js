@@ -2,7 +2,7 @@ const movie= require('../models/Items')
 const fetch = require('node-fetch');
 
 const movie_index = (req, res) => {  
-    fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=4f2d4313669b932746a7cbe1b3fff187')
+    fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=4f2d4313669b932746a7cbe1b3fff187&page=${process.env.page[1]}`)
 .then(res => res.json())
 .then((json)=>{
     //  console.log(json) 

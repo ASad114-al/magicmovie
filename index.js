@@ -10,6 +10,8 @@ const { json } = require('express');
 
 app.use(express.urlencoded({ extended: true }))
 const mongoose = require('mongoose');
+const { get } = require('./routes/movieRoutes')
+
 
 mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
@@ -19,4 +21,6 @@ mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology:
     .catch(err => console.log(err))
 
     app.use(movieRoutes)
+  
+
   
