@@ -2,14 +2,14 @@ const { Router } = require('express')
 const express=require('express')
 const fetch = require('node-fetch');
 const router=express.Router()
-// const movieControllers =require('../controllers/movieControllers')
 const movie= require('../models/Items')
 const { json } = require('express');
+ const movieControllers = require('../controllers/movieControllers');
 
 
 
 
-router.get('/',  (req, res) => {  
+router.get('/',   (req, res) => {  
     fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=4f2d4313669b932746a7cbe1b3fff187')
 .then(res => res.json())
 .then((json)=>{
@@ -20,7 +20,7 @@ router.get('/',  (req, res) => {
 
 })
 .catch(err => console.log(err))   
-}  )
+} )
 
 
 router.get('/details/:id' , (req, res) =>{

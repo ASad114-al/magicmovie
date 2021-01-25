@@ -2,18 +2,43 @@
 
 
 <%- include('./partials/header') %> 
-    <main>
+    
         <%- include('./partials/nav') %> 
-        <img src="https://image.tmdb.org/t/p/w500/<%= removedata.backdrop_path %>" alt="">
-        <article>
-            <img src="/assets/img/icon.png" alt="">
-            <a href="/removefavourite/<%=removedata._id %>/delete">
-         
-           
-            <h2>Remove from  favourite</h2>
-           </a>
-        </article>
+       
+        <main class="mainDetail">
+            <img src="https://image.tmdb.org/t/p/original<%=removedata.backdrop_path %> " alt="">
         
+            <div class="rating">
+                <img src="/assets/img/star2.png" alt="">
+                <h4><%=removedata.vote_average %><span class="small">/10</span> </h4>
+                <h5><%=removedata.popularity %> </h5>
+            </div>
+            <section>
+                <div class="favourites">
+                    <a href="/removefavourite/<%=removedata._id %>/delete"><img src="/assets/img/minus.svg" alt=""> </a>
+                    <h1>Remove from  favourite</h1>
+               
+                </div>
         
-        </main
+                <h3><%= removedata.original_title %> </h3>
+        
+                <div class="details">
+                    <p><%= removedata.release_date %> </p>
+                    <p><%= removedata.status %> </p>
+                </div>
+        
+                <div class="genres">
+                    <% removedata.genres.forEach(element => { %>
+                    <span class="btn"><%=  element.name %> </span>
+                    <% }) %>
+                </div>
+        
+                <div class="text">
+                    <h2>Plot Summary</h2>
+                    <p><%= removedata.overview%></p>
+                </div>
+            </section>
+        
+        </main>
+       
 <%- include('./partials/footer') %> 
